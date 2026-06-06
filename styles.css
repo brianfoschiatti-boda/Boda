@@ -1,0 +1,165 @@
+/* Configuraciones Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: #FDFBF7; /* Blanco roto / Beige claro */
+    color: #4A4A4A;
+    /* Activa el desplazamiento por bloques rígidos en móviles */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+/* Bloques Verticales a Pantalla Completa */
+.bloque {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    scroll-snap-align: start; 
+    position: relative;
+    background-color: #FDFBF7;
+}
+
+/* Contenedor del Texto de cada bloque */
+.contenido {
+    max-width: 90%;
+    z-index: 2;
+}
+
+/* Rosas Blancas Difuminadas en los Bordes */
+.bloque::before, .bloque::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* Asegurate de tener una rosa con fondo transparente llamada rosa_blanca_difuminada.png */
+    background-image: url('rosa_blanca_difuminada.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.25; /* Suaviza la imagen para que quede difuminada con el fondo */
+    pointer-events: none;
+}
+
+.bloque::before { 
+    top: 0; 
+    left: 0; 
+    transform: rotate(0deg); 
+}
+
+.bloque::after { 
+    bottom: 0; 
+    right: 0; 
+    transform: rotate(180deg); 
+}
+
+/* Bloque 1: Estilos de Portada */
+.foto-novios img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #F5EFEB; /* Borde beige sutil */
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #8C7B6E; /* Taupe / Beige oscuro */
+    margin-bottom: 15px;
+}
+
+.flecha {
+    font-size: 0.9rem;
+    color: #A39385;
+    margin-top: 30px;
+    animation: bounce 2s infinite;
+}
+
+/* Bloque 2: Estilos de Asistencia */
+h2 {
+    font-size: 2rem;
+    color: #8C7B6E;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.boton-confirmar {
+    display: inline-block;
+    background-color: #8C7B6E;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Bloque 3: Estilos de Regalo y Datos de Cuenta */
+.frase {
+    font-style: italic;
+    font-size: 1rem;
+    color: #6E6359;
+    margin-bottom: 25px;
+}
+
+.datos-banco {
+    background-color: #F5EFEB; /* Fondo beige suave */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.datos-banco p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.datos-banco p:last-child {
+    margin-bottom: 0;
+}
+
+.boton-copiar {
+    display: block;
+    width: 100%;
+    background-color: #8C7B6E;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.boton-copiar:active {
+    transform: scale(0.98);
+}
+
+/* Animación de rebote para la flecha de la portada */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
