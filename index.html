@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda</title>
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Monsieur+La+Doulaise&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Bloque 1: Portada y Foto -->
+    <!-- Bloque 1: Portada Fina -->
     <section class="bloque portada">
+        <div class="marco-decorativo"></div>
         <div class="contenido">
-            <div class="foto-novios">
-                <!-- Asegurate de que tu foto se llame foto_novios.jpg en la misma carpeta -->
-                <img src="foto_novios.jpg" alt="Novios">
+            <div class="contenedor-foto">
+                <img src="foto_novios.jpg" alt="Novios" class="foto-novios">
             </div>
-            <h1>¡Nos Casamos!</h1>
-            <p class="flecha">↓ Deslizá para ver más</p>
+            <p class="subtitulo-boda">NUESTRA BODA</p>
+            <h1 class="titulo-manuscrito">¡Nos Casamos!</h1>
+            <div class="divisor-elegante"></div>
+            <p class="flecha">Deslizá para descubrir</p>
         </div>
     </section>
 
     <!-- Bloque 2: Confirmación de Asistencia -->
     <section class="bloque asistencia">
+        <div class="marco-decorativo"></div>
         <div class="contenido">
-            <h2>Confirmación de Asistencia</h2>
-            <p>Queremos que compartas este día tan especial con nosotros.</p>
-            <p>Por favor, confirmá tu presencia antes de la fecha límite.</p>
-            <!-- REEMPLAZÁ el número 5491112345678 por tu celular (código de país + área + número, sin el + ni espacios) -->
-            <a href="https://wa.me¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda." class="boton-confirmar" target="_blank">
+            <h2 class="titulo-seccion">R.S.V.P.</h2>
+            <p class="texto-elegante">Nuestra felicidad no estaría completa sin tu compañía en este día tan importante.</p>
+            <p class="texto-secundario">Por favor, confirmar asistencia antes de la fecha límite.</p>
+            <!-- REEMPLAZÁ el número de WhatsApp aquí -->
+            <a href="https://wa.me¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda." class="boton-premium" target="_blank">
                 Confirmar por WhatsApp
             </a>
         </div>
@@ -35,39 +42,47 @@
 
     <!-- Bloque 3: Regalo y Cuenta Bancaria -->
     <section class="bloque regalo">
+        <div class="marco-decorativo"></div>
         <div class="contenido">
-            <h2>El Mejor Regalo</h2>
-            <p class="frase">"Tu presencia en nuestra boda es el mejor regalo que podríamos recibir. Pero si deseas tener un detalle con nosotros, te dejamos nuestra cuenta bancaria para ayudarnos en nuestro nuevo camino juntos."</p>
-            <div class="datos-banco">
-                <!-- REEMPLAZÁ estos datos ficticios por los reales de tu cuenta -->
-                <p><strong>Banco:</strong> Nombre del Banco</p>
-                <p><strong>Titular:</strong> Nombres de los Novios</p>
-                <p><strong>Alias:</strong> <span id="alias-texto">tu.alias.boda</span></p>
+            <h2 class="titulo-seccion">El Mejor Regalo</h2>
+            <p class="frase-romantica">"Tu presencia en nuestra boda es el mejor regalo que podríamos recibir. Pero si deseas tener un detalle con nosotros, te dejamos nuestra cuenta bancaria para ayudarnos en nuestro nuevo camino juntos."</p>
+            
+            <div class="tarjeta-banco">
+                <div class="item-banco">
+                    <span class="etiqueta">BANCO</span>
+                    <span class="valor">Nombre del Banco</span>
+                </div>
+                <div class="item-banco">
+                    <span class="etiqueta">TITULAR</span>
+                    <span class="valor">Nombres de los Novios</span>
+                </div>
+                <div class="item-banco">
+                    <span class="etiqueta">ALIAS</span>
+                    <span class="valor-destacado" id="alias-texto">tu.alias.boda</span>
+                </div>
                 
-                <!-- Botón interactivo para copiar -->
-                <button onclick="copiarAlias()" id="btn-copiar" class="boton-copiar">
+                <button onclick="copiarAlias()" id="btn-copiar" class="boton-copiar-premium">
                     Copiar Alias
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Script de JavaScript para la función de copiar -->
+    <!-- Script de JavaScript interactivo -->
     <script>
         function copiarAlias() {
             const alias = document.getElementById('alias-texto').innerText;
-            
             navigator.clipboard.writeText(alias).then(() => {
                 const boton = document.getElementById('btn-copiar');
-                boton.innerText = '¡Copiado! ✓';
-                boton.style.backgroundColor = '#6E6359'; 
+                boton.innerText = '¡Copiado con éxito! ✓';
+                boton.classList.add('copiado');
                 
                 setTimeout(() => {
                     boton.innerText = 'Copiar Alias';
-                    boton.style.backgroundColor = '#8C7B6E';
-                }, 2000);
+                    boton.classList.remove('copiado');
+                }, 2500);
             }).catch(err => {
-                alert('No se pudo copiar automáticamente. Por favor, seleccionalo manualmente.');
+                alert('Por favor, selecciona y copia el alias manualmente.');
             });
         }
     </script>
