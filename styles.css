@@ -1,165 +1,255 @@
-/* Configuraciones Generales */
+/* Reset y Configuración General Estilo Tarjetería */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
     height: 100%;
-    background-color: #FDFBF7; /* Blanco roto / Beige claro */
-    color: #4A4A4A;
-    /* Activa el desplazamiento por bloques rígidos en móviles */
+    background-color: #FBF9F6; /* Fondo blanco marfil / beige sumamente claro */
+    color: #4A443F; /* Gris cálido profundo, más suave que el negro puro */
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Bloques Verticales a Pantalla Completa */
+/* Bloques de Pantalla Completa */
 .bloque {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     scroll-snap-align: start; 
     position: relative;
-    background-color: #FDFBF7;
+    background-color: #FBF9F6;
+    overflow: hidden;
 }
 
-/* Contenedor del Texto de cada bloque */
-.contenido {
-    max-width: 90%;
-    z-index: 2;
+/* Marco Fino de Alta Costura */
+.marco-decorativo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid #E6DFD5; /* Línea beige sutil */
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Rosas Blancas Difuminadas en los Bordes */
+/* Esquinas con Rosas Difuminadas Premium */
 .bloque::before, .bloque::after {
     content: "";
     position: absolute;
-    width: 150px;
-    height: 150px;
-    /* Asegurate de tener una rosa con fondo transparente llamada rosa_blanca_difuminada.png */
+    width: 180px;
+    height: 180px;
     background-image: url('rosa_blanca_difuminada.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.25; /* Suaviza la imagen para que quede difuminada con el fondo */
+    opacity: 0.18; /* Más sutil para un look de marca de agua de lujo */
     pointer-events: none;
+    z-index: 2;
 }
 
-.bloque::before { 
-    top: 0; 
-    left: 0; 
-    transform: rotate(0deg); 
+.bloque::before { top: -10px; left: -10px; transform: rotate(0deg); }
+.bloque::after { bottom: -10px; right: -10px; transform: rotate(180deg); }
+
+/* Contenedor Interno */
+.contenido {
+    max-width: 340px;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.bloque::after { 
-    bottom: 0; 
-    right: 0; 
-    transform: rotate(180deg); 
+/* --- BLOQUE 1: PORTADA --- */
+.contenedor-foto {
+    position: relative;
+    margin-bottom: 25px;
 }
 
-/* Bloque 1: Estilos de Portada */
-.foto-novios img {
-    width: 200px;
-    height: 200px;
+.foto-novios {
+    width: 190px;
+    height: 190px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #F5EFEB; /* Borde beige sutil */
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #DFD5C6;
+    padding: 6px; /* Efecto de doble marco */
+    background-color: #FFF;
+    box-shadow: 0px 10px 25px rgba(140, 123, 110, 0.12);
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #8C7B6E; /* Taupe / Beige oscuro */
+.subtitulo-boda {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #A69686;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.titulo-manuscrito {
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-size: 4.2rem;
+    color: #736457;
+    font-weight: 400;
+    line-height: 0.9;
     margin-bottom: 15px;
+}
+
+.divisor-elegante {
+    width: 40px;
+    height: 1px;
+    background-color: #C4B7A6;
+    margin: 10px 0;
 }
 
 .flecha {
-    font-size: 0.9rem;
-    color: #A39385;
-    margin-top: 30px;
-    animation: bounce 2s infinite;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #9C8E80;
+    margin-top: 25px;
+    animation: fadeBounce 2.5s infinite;
 }
 
-/* Bloque 2: Estilos de Asistencia */
-h2 {
-    font-size: 2rem;
-    color: #8C7B6E;
+/* --- BLOQUE 2: ASISTENCIA (RSVP) --- */
+.titulo-seccion {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    color: #736457;
+    font-weight: 400;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.texto-elegante {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #594F45;
     margin-bottom: 15px;
 }
 
-.boton-confirmar {
-    display: inline-block;
-    background-color: #8C7B6E;
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    margin-top: 15px;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
+.texto-secundario {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #9C8E80;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
 }
 
-/* Bloque 3: Estilos de Regalo y Datos de Cuenta */
-.frase {
+/* Botón Minimalista Premium */
+.boton-premium {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #736457;
+    color: #FFF;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 4px; /* Bordes rectos sutiles estilo boutique */
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(115, 100, 87, 0.2);
+    transition: all 0.3s ease;
+}
+
+.boton-premium:active {
+    background-color: #594F45;
+    transform: translateY(1px);
+}
+
+/* --- BLOQUE 3: REGALO --- */
+.frase-romantica {
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.6;
     color: #6E6359;
     margin-bottom: 25px;
 }
 
-.datos-banco {
-    background-color: #F5EFEB; /* Fondo beige suave */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    display: inline-block;
+/* Tarjeta contenedora translúcida */
+.tarjeta-banco {
+    background-color: rgba(245, 239, 235, 0.7); /* Beige suave translúcido */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(223, 213, 198, 0.5);
+    padding: 24px;
+    border-radius: 8px;
     width: 100%;
-    max-width: 300px;
+    box-shadow: 0px 8px 20px rgba(140, 123, 110, 0.05);
 }
 
-.datos-banco p {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
+.item-banco {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed rgba(196, 183, 166, 0.4);
+    padding-bottom: 8px;
 }
 
-.datos-banco p:last-child {
-    margin-bottom: 0;
+.item-banco:nth-child(3) {
+    border-bottom: none;
+    margin-bottom: 15px;
 }
 
-.boton-copiar {
-    display: block;
+.etiqueta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #A69686;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+}
+
+.valor {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #4A443F;
+    font-weight: 600;
+}
+
+.valor-destacado {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    color: #736457;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Botón copiar refinado */
+.boton-copiar-premium {
     width: 100%;
-    background-color: #8C7B6E;
-    color: white;
-    border: none;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    color: #736457;
+    border: 1px solid #736457;
     padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.boton-copiar:active {
-    transform: scale(0.98);
+.boton-copiar-premium.copiado {
+    background-color: #736457;
+    color: #FFF;
+    border-color: #736457;
 }
 
-/* Animación de rebote para la flecha de la portada */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+/* Animaciones */
+@keyframes fadeBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-6px); opacity: 1; }
 }
